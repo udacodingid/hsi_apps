@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hsi_sharing/screen/login.dart';
 import 'page2.dart';
 import 'page3.dart';
 
@@ -58,42 +59,70 @@ class PageHome extends StatelessWidget {
       body: Center(
         child: Column(
           children: [
-            SizedBox(height: 40,),
-            Image.asset('gambar/logo_hsi.png', height: 200, width: 200,),
-            SizedBox(height: 20,),
+            SizedBox(
+              height: 40,
+            ),
+            Image.asset(
+              'gambar/logo_hsi.png',
+              height: 200,
+              width: 200,
+            ),
+            SizedBox(
+              height: 20,
+            ),
             Text(
               'Ahlan Wa Sahlan di HSI Apps',
               style: TextStyle(fontWeight: FontWeight.bold, color: Colors.blue),
             ),
-            SizedBox(height: 10,),
+            SizedBox(
+              height: 10,
+            ),
             MaterialButton(
               color: Colors.blue,
               textColor: Colors.white,
               child: Text('Page 1'),
-              onPressed: (){
-                Navigator.push(context, (MaterialPageRoute(builder : (context) => Page1())));
+              onPressed: () {
+                Navigator.push(context,
+                    (MaterialPageRoute(builder: (context) => Page1())));
               },
             ),
-            SizedBox(height: 20,),
+            SizedBox(
+              height: 20,
+            ),
             MaterialButton(
               color: Colors.blue,
               textColor: Colors.white,
               child: Text('Page 2'),
-              onPressed: (){
-                Navigator.push(context, (MaterialPageRoute(builder : (context) => page2())));
+              onPressed: () {
+                Navigator.push(context,
+                    (MaterialPageRoute(builder: (context) => page2())));
               },
             ),
-            SizedBox(height: 20,),
+            SizedBox(
+              height: 20,
+            ),
             MaterialButton(
               textColor: Colors.white,
               color: Colors.blue,
               child: Text('Page 3'),
-              onPressed: (){
-                Navigator.push(context, (MaterialPageRoute(builder : (context) => Page3())));
+              onPressed: () {
+                Navigator.push(context,
+                    (MaterialPageRoute(builder: (context) => Page3())));
               },
             ),
+            SizedBox(
+              height: 20,
+            ),
+            MaterialButton(
+              textColor: Colors.white,
+              color: Colors.blue,
+              child: Text('Login Mahazi'),
+              onPressed: () {
+                Navigator.push(context,
+                    (MaterialPageRoute(builder: (context) => PageLogin())));
+              },
+            )
           ],
-
         ),
       ),
     );
@@ -107,15 +136,10 @@ class Page1 extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.blue,
         title: Text('Page 1'),
-
       ),
-
       body: Center(
-        child: Text(
-          'Ini Page Pertama'
-        ),
+        child: Text('Ini Page Pertama'),
       ),
     );
   }
 }
-
