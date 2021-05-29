@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'page2.dart';
+import 'page3.dart';
 
 void main() {
   runApp(MyApp());
@@ -22,92 +24,98 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      home: PageHome(),
+      debugShowCheckedModeBanner: false,
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  MyHomePage({Key? key, required this.title}) : super(key: key);
+//class
+//1 file --> bisa beberapa class
+//class : stateless & statefull
+//less : dikit, --> digunakan untuk view
+//statefull -->
+//nampilin gambar dan teks :
+//widget & property
+// widget : huruf besar
+// properti : huruf kecil
+// AppBar : widget
+// appBar  : properti
+//child : children
+//child : menampung 1 widget :text, container,
+//children : banyak widget (row, column, list)
+//yang bisa d klik : button
+//teks bisa d klik : inkwell
 
-  // This widget is the home page of your application. It is stateful, meaning
-  // that it has a State object (defined below) that contains fields that affect
-  // how it looks.
-
-  // This class is the configuration for the state. It holds the values (in this
-  // case the title) provided by the parent (in this case the App widget) and
-  // used by the build method of the State. Fields in a Widget subclass are
-  // always marked "final".
-
-  final String title;
-
-  @override
-  _MyHomePageState createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-      _counter++;
-    });
-  }
-
+class PageHome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    // This method is rerun every time setState is called, for instance as done
-    // by the _incrementCounter method above.
-    //
-    // The Flutter framework has been optimized to make rerunning build methods
-    // fast, so that you can just rebuild anything that needs updating rather
-    // than having to individually change instances of widgets.
     return Scaffold(
       appBar: AppBar(
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
-        title: Text(widget.title),
+        backgroundColor: Colors.blue,
+        title: Text('HSI Apps'),
       ),
       body: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
         child: Column(
-          // Column is also a layout widget. It takes a list of children and
-          // arranges them vertically. By default, it sizes itself to fit its
-          // children horizontally, and tries to be as tall as its parent.
-          //
-          // Invoke "debug painting" (press "p" in the console, choose the
-          // "Toggle Debug Paint" action from the Flutter Inspector in Android
-          // Studio, or the "Toggle Debug Paint" command in Visual Studio Code)
-          // to see the wireframe for each widget.
-          //
-          // Column has various properties to control how it sizes itself and
-          // how it positions its children. Here we use mainAxisAlignment to
-          // center the children vertically; the main axis here is the vertical
-          // axis because Columns are vertical (the cross axis would be
-          // horizontal).
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
+          children: [
+            SizedBox(height: 40,),
+            Image.asset('gambar/logo_hsi.png', height: 200, width: 200,),
+            SizedBox(height: 20,),
             Text(
-              'You have pushed the button this many times:',
+              'Ahlan Wa Sahlan di HSI Apps',
+              style: TextStyle(fontWeight: FontWeight.bold, color: Colors.blue),
             ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
+            SizedBox(height: 10,),
+            MaterialButton(
+              color: Colors.blue,
+              textColor: Colors.white,
+              child: Text('Page 1'),
+              onPressed: (){
+                Navigator.push(context, (MaterialPageRoute(builder : (context) => Page1())));
+              },
+            ),
+            SizedBox(height: 20,),
+            MaterialButton(
+              color: Colors.blue,
+              textColor: Colors.white,
+              child: Text('Page 2'),
+              onPressed: (){
+                Navigator.push(context, (MaterialPageRoute(builder : (context) => page2())));
+              },
+            ),
+            SizedBox(height: 20,),
+            MaterialButton(
+              textColor: Colors.white,
+              color: Colors.blue,
+              child: Text('Page 3'),
+              onPressed: (){
+                Navigator.push(context, (MaterialPageRoute(builder : (context) => Page3())));
+              },
             ),
           ],
+
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }
+
+class Page1 extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.blue,
+        title: Text('Page 1'),
+
+      ),
+
+      body: Center(
+        child: Text(
+          'Ini Page Pertama'
+        ),
+      ),
+    );
+  }
+}
+
